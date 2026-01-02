@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>حاسبة الزكاة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Alkalami&family=Almarai:wght@300;400;700;800&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@200..1000&family=Changa:wght@200..800&family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Sans+Arabic:wght@100..900&family=Readex+Pro:wght@160..700&family=Reem+Kufi+Ink&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ruwudu:wght@400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+        body {
+            font-family: Readex Pro;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            font-family: Readex Pro;
+            background: #020617;
+            padding: 25px;
+            border-radius: 12px;
+            width: 550px;
+            height: 300px;
+            box-shadow: 0 0 15px #000;
+        }
+
+        h2 {
+            font-family: Readex Pro;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            font-family: Readex Pro;
+            text-align: end;
+            width: 96.5%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 45px;
+            font-size: 16px;
+        }
+
+        button {
+            font-family: Readex Pro;
+            width: 100%;
+            padding: 10px;
+            background: #22c55e;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            font-family: Readex Pro;
+            background: #16a34a;
+        }
+
+        #result {
+            font-family: Readex Pro;
+            font-size: 20px;
+            padding: 15px;
+            border: 3px solid #170d6e;
+            border-radius: 12px;
+            margin-top: 45px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>حاسبة الزكاة</h2>
+
+    <input type="number" id="money" placeholder="أدخل المبلغ بالجنيه">
+
+    <button onclick="calculateZakat()">احسب الزكاة</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculateZakat() {
+        const money = Number(document.getElementById("money").value);
+        const nisab = 85000; // نصاب تقريبي بالجنيه (85 جرام ذهب)
+
+        if (money <= 0) {
+            document.getElementById("result").innerText = "❌ أدخل مبلغ صحيح";
+            return;
+        }
+
+        if (money < nisab) {
+            document.getElementById("result").innerText =
+                "ℹ️ لا زكاة عليك، فلم يبلغ المال النصاب";
+        } else {
+            const zakat = money * 0.025;
+            document.getElementById("result").innerText =
+                "✅ الزكاة الواجبة: " + zakat.toFixed(2) + " جنيه";
+        }
+    }
+</script>
+
+</body>
+</html>
