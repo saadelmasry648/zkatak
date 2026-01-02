@@ -84,7 +84,7 @@
 <script>
     function calculateZakat() {
         const money = Number(document.getElementById("money").value);
-        const nisab = 85*6000; // نصاب تقريبي بالجنيه (85 جرام ذهب)
+        const nisab = (85*6000); // نصاب تقريبي بالجنيه (85 جرام ذهب)
 
         if (money <= 0) {
             document.getElementById("result").innerText = "❌ أدخل مبلغ صحيح";
